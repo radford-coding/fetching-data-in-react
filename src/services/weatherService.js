@@ -3,9 +3,7 @@ const BASE_URL = `http://api.weatherapi.com/v1/current.json?key=${import.meta.en
 const show = async (city) => {
     try {
         const queryString = `&q=${city}`;
-        const res = await fetch(BASE_URL + queryString);
-        const data = await res.json();
-        console.log('Data:', data);
+        const data = await fetch(BASE_URL + queryString).then((res) => res.json());
         return data;
     } catch (err) {
         console.log(err);
